@@ -11,9 +11,9 @@ Nguồn tham chiếu: 01_introduction_html_universe.md
     7.Phân tích dữ liệu và render giao diện hiển thị trang web.
 
 2. Trong DevTools của Chrome, tab Network cho thấy thông tin về tất cả các tài nguyên mà trình duyệt đã tải xuống hoặc đang tải, bao gồm tệp tin, hình ảnh và các cuộc gọi API. Các thông tin chính bao gồm: Name, Status, Type, Time/Waterfall.
-    - Status Code của request đầu tiên: ![alt text](<Screenshot 2026-04-29 235541.png>)
-    - Tổng thời gian load trang: ![alt text](<Screenshot 2026-04-29 235645.png>)
-    - Một request trả về file CSS: ![alt text](<Screenshot 2026-04-29 235756.png>)
+    - Status Code của request đầu tiên: ![alt text](<Screenshot%202026-04-29%20235541.png>)
+    - Tổng thời gian load trang: ![alt text](<Screenshot%202026-04-29%20235645.png>)
+    - Một request trả về file CSS: ![alt text](<Screenshot%202026-04-29%20235756.png>)
 
 ## Câu A2:
 Nguồn tham chiếu: 04_visible_part_html.md
