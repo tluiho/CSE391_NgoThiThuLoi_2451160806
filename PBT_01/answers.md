@@ -63,3 +63,4 @@ Nguồn tham chiếu: 04_visible_part_html.md
     + Code rối, khó bảo trì: Phải lồng nhiều `<tr>`, `<td>`, khó sửa và mở rộng.
     + Hiệu năng kém: Trình duyệt phải render gần như toàn bộ bảng rồi mới hiển thị.
 
+## 
