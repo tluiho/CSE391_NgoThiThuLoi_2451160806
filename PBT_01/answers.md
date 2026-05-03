@@ -11,9 +11,9 @@ Nguồn tham chiếu: 01_introduction_html_universe.md
     7.Phân tích dữ liệu và render giao diện hiển thị trang web.
 
 2. Trong DevTools của Chrome, tab Network cho thấy thông tin về tất cả các tài nguyên mà trình duyệt đã tải xuống hoặc đang tải, bao gồm tệp tin, hình ảnh và các cuộc gọi API. Các thông tin chính bao gồm: Name, Status, Type, Time/Waterfall.
-    - Status Code của request đầu tiên: ![alt text](anh1.png)
-    - Tổng thời gian load trang: ![alt text](anh2.png)
-    - Một request trả về file CSS: ![alt text](anh3.png)
+    - Status Code của request đầu tiên: ![alt text](screenshots/anh1.png)
+    - Tổng thời gian load trang: ![alt text](screenshots/anh2.png)
+    - Một request trả về file CSS: ![alt text](screenshots/anh3.png)
 
 ## Câu A2:
 Nguồn tham chiếu: 04_visible_part_html.md
@@ -77,3 +77,42 @@ Nguồn tham chiếu: 04_visible_part_html.md
 * Lỗi 11: Dòng 38 — dùng 2 thẻ `<main>` là sai semantic — thay cái thứ 2 bằng `<aside>`
 * Lỗi 12: Dòng 43 — `<p>` trong footer không đóng — thêm `</p>`
 * Lỗi 13: Dòng 44 — thiếu đóng `</html>`
+
+## Câu B4: 
+- Chọn web: tiki.vn
+1. 
+    -   3 thẻ semantic HTML5:
+   ![alt text](screenshots/anh4.png)
+    `<header>`
+    - Vị trí: Phần đầu trang
+    - Chức năng: Chứa logo và menu điều hướng
+    - `<nav>`
+    - Vị trí: Thanh menu
+    - Chức năng: Điều hướng giữa các trang
+    - `<footer>`
+    - Vị trí: Cuối trang
+    - Chức năng: Thông tin bản quyền, liên hệ
+2.  
+    - Không tìm thấy thẻ `<table>` trên trang shopee.
+    - Không dùng thead, tbody: Shopee sử dụng CSS + div để layout thay vì table
+3. 
+    - `<form>` trên trang Shopee:
+    ![alt text](screenshots/anh5.png)
+    - Action: không khai báo (Mặc định gửi dữ liệu về chính URL hiện tại).
+    - Method: không khai báo (Mặc định là phương thức `get`).
+    - Input types: 
+        - `type="text"`: Sử dụng cho ô nhập "Email/Số điện thoại/Tên đăng nhập" (name="loginKey").
+        - `type="password"`: Sử dụng cho ô nhập "Mật khẩu" (name="password").
+        - Thẻ `<button type="button">` (trong thẻ div mật khẩu): Dùng để ẩn/hiện mật khẩu.
+        - Thẻ `<button>` ở cuối cùng: Đóng vai trò là nút Đăng nhập để submit toàn bộ dữ liệu trong form.
+
+## Câu C2:
+Ý kiến “chỉ cần dùng `<div>` + class là đủ” nghe có vẻ nhanh gọn, nhưng về kỹ thuật lại thiếu bền vững. Trước hết, về SEO, các công cụ tìm kiếm không chỉ đọc nội dung mà còn phân tích ngữ nghĩa cấu trúc. Những thẻ như `<header>, <main>, <article>, <nav>` giúp bot hiểu đâu là nội dung chính, đâu là điều hướng hay phần phụ. Nếu mọi thứ đều là `<div>`, trang trở nên “vô nghĩa” về mặt cấu trúc, khiến việc index kém chính xác và có thể ảnh hưởng thứ hạng.
+
+Thứ hai là accessibility. Các công cụ hỗ trợ như screen reader dựa vào semantic HTML để giúp người dùng khiếm thị điều hướng nhanh. Ví dụ, họ có thể nhảy thẳng đến `<nav>` hoặc `<main>` chỉ bằng phím tắt. Nếu thay bằng `<div>`, bạn buộc phải thêm ARIA roles thủ công, vừa tốn công vừa dễ sai.
+
+Một ví dụ rõ ràng: dùng `<button>` thay vì `<div>` để làm nút. `<button>` mặc định hỗ trợ focus, điều khiển bằng bàn phím (Enter/Space), và có ý nghĩa rõ ràng cho cả trình duyệt lẫn assistive tech. Nếu dùng `<div>`, bạn phải viết thêm JavaScript để mô phỏng tất cả hành vi đó.
+
+Tuy nhiên, `<div>` vẫn rất hữu ích khi làm container layout hoặc nhóm các phần tử không có ý nghĩa riêng, ví dụ khi dùng Flexbox/Grid để chia cột.
+
+Tóm lại, semantic HTML không phải “tốn thời gian”, mà là khoản đầu tư giúp code rõ ràng, dễ bảo trì và thân thiện hơn với cả máy lẫn người.

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết sản phẩm</title>
+</head>
+<body>
+
+    <!-- Header: chứa logo, tìm kiếm, tài khoản -->
+    <header>
+        <!-- Navigation: menu điều hướng chính -->
+        <nav>
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Danh mục</a></li>
+                <li><a href="#">Khuyến mãi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb: điều hướng theo cấp -->
+    <nav aria-label="breadcrumb"> <!-- nav vì đây là điều hướng -->
+        <ol> <!-- ol vì breadcrumb có thứ tự -->
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Điện thoại</a></li>
+            <li>iPhone 16</li>
+        </ol>
+    </nav>
+
+    <main> <!-- main: nội dung chính của trang -->
+
+        <!-- Khu vực sản phẩm -->
+        <section> <!-- section: nhóm nội dung liên quan -->
+            
+            <!-- Ảnh sản phẩm -->
+            <div> <!-- div: container layout -->
+                <figure> <!-- figure: nhóm ảnh -->
+                    <img src="#" alt="Ảnh sản phẩm 1">
+                </figure>
+                <figure>
+                    <img src="#" alt="Ảnh sản phẩm 2">
+                </figure>
+                <figure>
+                    <img src="#" alt="Ảnh sản phẩm 3">
+                </figure>
+                <figure>
+                    <img src="#" alt="Ảnh sản phẩm 4">
+                </figure>
+                <figure>
+                    <img src="#" alt="Ảnh sản phẩm 5">
+                </figure>
+            </div>
+
+            <!-- Thông tin sản phẩm -->
+            <article> <!-- article: nội dung độc lập -->
+                <h1>Tên sản phẩm</h1> <!-- h1: tiêu đề chính -->
+                <p>Giá sản phẩm</p>
+                
+                <!-- Đánh giá -->
+                <div> <!-- div: nhóm sao đánh giá -->
+                    <span>★★★★★</span>
+                </div>
+
+                <section> <!-- section: mô tả -->
+                    <h2>Mô tả</h2>
+                    <p>Mô tả sản phẩm...</p>
+                </section>
+            </article>
+
+        </section>
+
+        <!-- Bảng thông số kỹ thuật -->
+        <section> <!-- section: nhóm thông tin -->
+            <h2>Thông số kỹ thuật</h2>
+            <table> <!-- table: dữ liệu dạng bảng -->
+                <thead> <!-- thead: tiêu đề bảng -->
+                    <tr>
+                        <th>Thuộc tính</th>
+                        <th>Giá trị</th>
+                    </tr>
+                </thead>
+                <tbody> <!-- tbody: dữ liệu -->
+                    <tr>
+                        <td>Màn hình</td>
+                        <td>6.1 inch</td>
+                    </tr>
+                    <tr>
+                        <td>Pin</td>
+                        <td>4000mAh</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Đánh giá / bình luận -->
+        <section> <!-- section: khu vực review -->
+            <h2>Đánh giá</h2>
+
+            <article> <!-- mỗi bình luận là 1 article -->
+                <h3>Người dùng A</h3>
+                <p>Sản phẩm rất tốt</p>
+            </article>
+
+            <article>
+                <h3>Người dùng B</h3>
+                <p>Đáng mua</p>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- Sidebar -->
+    <aside> <!-- aside: nội dung phụ -->
+        <h2>Sản phẩm tương tự</h2>
+        <ul>
+            <li><a href="#">Sản phẩm 1</a></li>
+            <li><a href="#">Sản phẩm 2</a></li>
+        </ul>
+    </aside>
+
+    <!-- Footer -->
+    <footer> <!-- footer: thông tin cuối trang -->
+        <p> 2026 Công ty</p>
+    </footer>
+
+</body>
+</html>
