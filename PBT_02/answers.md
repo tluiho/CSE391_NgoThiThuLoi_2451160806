@@ -34,3 +34,26 @@
 ![alt text](screenshots/image-4.png)
 
 ## Câu A3:
+1. `<label for="email">` quan trọng cho người dùng screen reader vì screen readser đọc trang web theo ngữ cảnh. Khi focus vào input, trình đọc sẽ thông báo tên label đi kèm (nhờ thuộc tính for khớp với id), giúp người khiếm thị biết họ đang nhập liệu vào đâu. Ngoài ra, click vào label sẽ tự động focus vào input, tăng trải nghiệm người dùng (UX).
+2. `<fieldset> + <legend>`: Dùng để nhóm các input có liên quan logic. 
+- Ví dụ: Nhóm các radio button chọn phương thức vận chuyển: "Nhanh", "Tiết kiệm", "Hỏa tốc". 
+- Cấu trúc: `<fieldset><legend>` Chọn phương thức vận chuyển`</legend>` ...radio buttons... `</fieldset>`
+3. aria-label: Dùng khi không có văn bản hiển thị trực quan (visual label) để mô tả cho component. 
+- Ví dụ: Nút tìm kiếm chỉ có icon kính lúp, cần aria-label="Tìm kiếm" để screen reader hiểu nút này làm gì.
+- Không dùng khi đã có `<label>` vì gây trùng lặp, screen reader đọc 2 lần.
+
+## Câu A4:
+- loading="lazy": Trì hoãn việc tải ảnh cho đến khi ảnh tiến gần đến viewport (màn hình) của người dùng.
+ + Cải thiện: Tăng tốc độ tải trang ban đầu (LCP - Largest Contentful Paint), tiết kiệm băng thông.
+ + Không dùng cho ảnh ở "above-the-fold" (ảnh ở ngay đầu trang, thấy ngay khi vừa tải), vì nó sẽ làm ảnh hiện chậm hơn.
+- Nhiều `<source>` trong `<video`>: Để đảm bảo trình duyệt nào cũng chạy được video. 3 format phổ biến: MP4 (H.264), WebM (VP9/AV1), Ogg (Theora).
+- Thuộc tính alt dùng để mô tả ảnh cho screen reader hiển thị khi ảnh lỗi.
+ + Iphone 16: alt="iPhone 16 Pro Max 256GB màu Titan"
+ + Trang trí: alt=""
+ + Biểu đồ: alt="Biểu đồ cột thể hiện doanh thu Q1/2026, tăng trưởng 10% so với cùng kỳ năm trước"
+
+ ## Câu A5:
+ - Cách 1 `<img>`: Dùng khi ảnh là một thành phần độc lập, mang tính trang trí hoặc không cần chú thích đi kèm.
+    Ví dụ: ảnh avatar user, ảnh sản phẩm,...
+- Cách 2 `<figure> + <figcaption>`: Dùng khi hình ảnh là một phần của nội dung, cần một lời giải thích (caption) đi kèm để ngữ cảnh được trọn vẹn. Nó tạo thành một khối thông tin thống nhất.
+    Ví dụ: Ảnh sản phẩm kèm giá/tên, biểu đồ trong bài báo cần tiêu đề giải thích biểu đồ đó.
