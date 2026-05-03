@@ -13,19 +13,24 @@
 
 ## Câu A2:
 <!-- Trường hợp 1 -->
-`<input type="text" required value="">`   <!-- User để trống --> Không submit được. Vì required mà để trống thì trình duyệt báo lỗi
+`<input type="text" required value="">`   <!-- User để trống --> Không submit được. Vì required mà để trống thì trình duyệt báo lỗi.
+
+![alt text](screenshots/image.png)
 
 <!-- Trường hợp 2 -->
-`<input type="email" value="abc">`        <!-- User gõ "abc" --> Không submit được. Vì không đúng định dạng email (thiếu @)
+`<input type="email" value="abc">`        <!-- User gõ "abc" --> Không submit được. Vì không đúng định dạng email (thiếu @).
+![alt text](screenshots/image-1.png)
 
 <!-- Trường hợp 3 -->
-`<input type="number" min="1" max="10" value="15">` <!-- User gõ 15 --> Không submit được. Vì 15 > max (10)
+`<input type="number" min="1" max="10" value="15">` <!-- User gõ 15 --> Không submit được. Vì 15 > max (10).
+
+![alt text](screenshots/image-2.png)
 
 <!-- Trường hợp 4 -->
 `<input type="text" pattern="[0-9]{10}" value="abc123">` <!-- User gõ "abc123" --> Không submit được. Vì không đúng regex (phải 10 số)
-
+![alt text](screenshots/image-3.png)
 <!-- Trường hợp 5 -->
 `<input type="password" minlength="8" value="123">`  <!-- User gõ "123" --> Không submit được. Vì độ dài < 8
-![alt text](image.png)
+![alt text](screenshots/image-4.png)
 
 ## Câu A3:
