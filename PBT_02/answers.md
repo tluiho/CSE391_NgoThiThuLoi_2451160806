@@ -57,3 +57,5 @@
     Ví dụ: ảnh avatar user, ảnh sản phẩm,...
 - Cách 2 `<figure> + <figcaption>`: Dùng khi hình ảnh là một phần của nội dung, cần một lời giải thích (caption) đi kèm để ngữ cảnh được trọn vẹn. Nó tạo thành một khối thông tin thống nhất.
     Ví dụ: Ảnh sản phẩm kèm giá/tên, biểu đồ trong bài báo cần tiêu đề giải thích biểu đồ đó.
+
+# 
