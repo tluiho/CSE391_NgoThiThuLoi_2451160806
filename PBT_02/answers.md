@@ -65,4 +65,39 @@ HTML không thể tự kiểm tra "confirm password" vì:
 - Không thể so sánh giá trị giữa 2 input (password vs confirm)
 - Muốn kiểm tra phải dùng JavaScript
 => Hạn chế của HTML5 validation
-## 
+
+# Phần C:
+## Câu C1:
+- Lỗi 1: Input "Tên" không có label
+    Sửa: `<label for="name">`Tên:`</label> <input type="text" id="name" name="name" required>`
+- Lỗi 2: Email không có name và label
+    Sửa: `<label for="email">`Email:`</label> <input type="email" id="email" name="email" required>`
+- Lỗi 3: Password không có validation
+    Sửa: thêm minlength="8"
+- Lỗi 4: Không validate confirm password
+    ửa: cần JS để so sánh
+- Lỗi 5: Phone dùng type="text"
+    Sửa: `<input type="tel" pattern="[0-9]{10}">`
+- Lỗi 6: Phone có value mặc định (không nên)
+    Sửa: bỏ value
+- Lỗi 7: Select không có label
+    Sửa: `<label for="city">`Thành phố:`</label>`
+- Lỗi 8: Checkbox không có input
+    Sửa:
+    `<label>`
+    `<input type="checkbox" required>`
+    Tôi đồng ý điều khoản
+    `</label>`
+
+## Câu C2: 
+1. Viết pattern regex:
+- CMND/CCCD (12 chữ số liên tiếp): pattern="[0-9]{12}"
+- Số tài khoản (từ 10 đến 15 chữ số): pattern="[0-9]{10,15}"
+2. HTML5 validation chưa đủ an toàn cho ứng dụng ngân hàng. Vì chỉ validate phía client, user có thể bypass, không bảo mật dữ liệu.
+3. 3 thứ HTML không làm được: 
+    - So sánh 2 field (confirm password).
+    - Kiểm tra tồn tại email (database).
+    - Logic phức tạp (OTP, captcha).
+4. Hai rủi ro bảo mật lớn nếu chỉ validate trên Frontend:
+    - Tấn công: Kẻ tấn công có thể gửi các đoạn mã độc thông qua các trường nhập liệu để phá hủy cơ sở dữ liệu hoặc đánh cắp thông tin người dùng khác.
+    - Sai lệch dữ liệu: Dữ liệu rác hoặc sai định dạng sẽ được lưu vào hệ thống, dẫn đến việc xử lý lỗi phần mềm ở máy chủ hoặc làm hỏng hệ thống báo cáo.
