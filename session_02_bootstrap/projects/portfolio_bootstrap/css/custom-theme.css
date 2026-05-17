@@ -1,0 +1,11 @@
+:root{
+    --bs-primary:#14b8a6;
+    --bs-primary-hover:#0d9488;
+    --bs-primary-rgb:20,184,166;
+
+    --bs-secondary:#64748b;
+}
+.btn-primary{
+    background-color:var(--bs-primary);
+    border-color:var(--bs-primary);
+}
