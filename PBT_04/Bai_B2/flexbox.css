@@ -1,0 +1,58 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #f1f5f9; padding-bottom: 50px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px 40px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.logo { font-weight: bold; font-size: 22px; color: #1e3a8a; }
+.menu a {
+    text-decoration: none; color: #475569;
+    margin: 0 15px; font-weight: 500;
+    padding-bottom: 5px; transition: all 0.2s;
+}
+.menu a:hover, .menu a.active { color: #2563eb; border-bottom: 2px solid #2563eb; }
+.auth-buttons button {
+    padding: 8px 16px; margin-left: 10px; border-radius: 6px; cursor: pointer; border: none;
+}
+.btn-login { background: transparent; color: #2563eb; font-weight: bold; }
+.btn-register { background: #2563eb; color: white; }
+
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.card {
+    flex: 0 0 calc(25% - 15px);
+    background: white;
+    border-radius: 8px; border: 1px solid #e2e8f0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.card-img {
+    height: 150px; background: #f8fafc;
+    display: flex; align-items: center; justify-content: center;
+    color: #cbd5e1; border-radius: 6px; margin-bottom: 12px;
+}
+.card-body { margin-bottom: 15px; }
+.card-body h3 { font-size: 16px; color: #1e293b; margin-bottom: 5px; }
+.price { color: #ef4444; font-weight: bold; }
+
+.btn-buy {
+    margin-top: auto;
+    width: 100%; padding: 10px;
+    background: #0f172a; color: white;
+    border: none; border-radius: 6px; cursor: pointer;
+}
