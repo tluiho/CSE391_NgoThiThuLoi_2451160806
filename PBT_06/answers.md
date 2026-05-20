@@ -86,3 +86,41 @@
 1. `md:`, `lg:`, `xl:`: Các mốc kích thước màn hình (>= 768px, >= 1024px, >= 1280px). `md:grid-cols-2 lg:grid-cols-4` nghĩa là: Mobile 1 cột, Tablet 2 cột, Desktop 4 cột.
 2. `hover`: (khi di chuột), `focus`: (khi click vào), `active`: (khi nhấn giữ), `group-hover`: (phần tử con tự động đổi định dạng khi hover vào phần tử cha).
 3. Class tương đương: `hidden md:flex`
+## Câu C1:
+1. HTML size:
+- Tailwind thường làm file HTML dài hơn vì chứa nhiều utility classes trực tiếp trong thẻ HTML.
+- CSS thuần có HTML gọn hơn vì style được viết trong file CSS riêng.
+Ví dụ:
+```html
+<!-- CSS thuần -->
+<button class="btn-primary">Button</button>
+
+<!-- Tailwind -->
+<button class="bg-blue-500 text-white px-4 py-2 rounded">
+    Button
+</button>
+```
+2. Maintainability (Bảo trì):
+- TailwindCSS:
+    + Dễ chỉnh sửa trực tiếp tại phần tử HTML.
+    + Hạn chế xung đột CSS.
+    + Không cần đặt tên class phức tạp.
+    + Responsive và hover/focus viết nhanh.
+- CSS thuần:
+    + Dễ quản lý với project nhỏ.
+    + Nhưng với project lớn dễ bị: trùng class; CSS dư thừa; ảnh hưởng ngoài ý muốn.
+3. Reusability (Tái sử dụng):
+- CSS thuần tái sử dụng bằng class chung:
+```css
+.btn-primary
+.card
+.navbar
+```
+- TailwindCSS tái sử dụng bằng: Component (React/Vue); @apply; template/component library
+    Ví dụ:
+```css
+.btn {
+    @apply bg-blue-500 text-white px-4 py-2 rounded;
+}
+``` 
+
