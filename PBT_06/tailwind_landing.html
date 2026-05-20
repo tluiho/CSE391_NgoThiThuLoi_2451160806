@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Flower - Tailwind Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
+
+    <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 px-6 py-4 dark:bg-gray-800 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                🌸 Shop-Flower
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-8 font-medium">
+                <a href="#" class="text-emerald-600 dark:text-emerald-400">Trang chủ</a>
+                <a href="#" class="text-gray-600 hover:text-emerald-600 transition-colors dark:text-gray-300 dark:hover:text-emerald-400">Sản phẩm</a>
+                <a href="#" class="text-gray-600 hover:text-emerald-600 transition-colors dark:text-gray-300 dark:hover:text-emerald-400">Liên hệ</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <div class="relative hidden sm:block">
+                    <input type="text" placeholder="Tìm hoa..." class="w-48 px-3 py-1.5 text-sm rounded-md border border-gray-300 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-emerald-400">
+                </div>
+                <button class="relative p-2 text-gray-600 dark:text-gray-300">
+                    <span>🛒</span>
+                    <span class="absolute top-0 right-0 w-4 h-4 bg-red-500 text-white text-xxs font-bold rounded-full flex items-center justify-center">2</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative bg-cover bg-center h-[50vh] min-h-[400px] flex items-center justify-center text-center px-4" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://cdn.pixabay.com/photo/2020/04/28/12/58/tulips-5104396_960_720.jpg');">
+        <div class="max-w-3xl">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4 tracking-tight">Thế Giới Hoa Tươi Nghệ Thuật</h1>
+            <p class="text-lg text-gray-200 mb-8 max-w-xl mx-auto">Từng đóa hoa được tuyển chọn thủ công, gửi trọn yêu thương và sự tinh tế đến mọi không gian sống.</p>
+            <a href="#products" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-8 py-3 rounded-md shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+                Khám phá ngay
+            </a>
+        </div>
+    </section>
+
+    <div class="max-w-7xl mx-auto px-6 py-16" id="products">
+        <h2 class="text-3xl font-bold text-center uppercase tracking-wide mb-12 text-gray-900 dark:text-white">Danh mục sản phẩm</h2>
+        
+        <main class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            
+            <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden relative border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+                <span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Sale</span>
+                <img src="https://cdn.pixabay.com/photo/2020/04/28/12/58/tulips-5104396_960_720.jpg" class="w-100 h-48 object-cover" alt="Hoa tulip">
+                <div class="p-4 flex flex-column">
+                    <h5 class="font-bold text-lg text-gray-900 mb-1 dark:text-white">Hoa tulip</h5>
+                    <p class="text-red-500 font-bold text-sm mb-4 dark:text-red-400">6.500.000 đ</p>
+                    <button class="w-full bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium py-2 rounded transition-colors mt-auto dark:bg-emerald-600 dark:hover:bg-emerald-700">Xem nhanh</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden relative border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+                <img src="https://cdn.pixabay.com/photo/2020/04/28/12/58/tulips-5104396_960_720.jpg" class="w-100 h-48 object-cover" alt="Hoa hồng">
+                <div class="p-4 flex flex-column">
+                    <h5 class="font-bold text-lg text-gray-900 mb-1 dark:text-white">Hoa hồng</h5>
+                    <p class="text-red-500 font-bold text-sm mb-4 dark:text-red-400">2.000.000 đ</p>
+                    <button class="w-full bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium py-2 rounded transition-colors mt-auto dark:bg-emerald-600 dark:hover:bg-emerald-700">Xem nhanh</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden relative border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+                <img src="https://cdn.pixabay.com/photo/2020/04/28/12/58/tulips-5104396_960_720.jpg" class="w-100 h-48 object-cover" alt="Hoa cúc">
+                <div class="p-4 flex flex-column">
+                    <h5 class="font-bold text-lg text-gray-900 mb-1 dark:text-white">Hoa cúc</h5>
+                    <p class="text-red-500 font-bold text-sm mb-4 dark:text-red-400">1.000.000 đ</p>
+                    <button class="w-full bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium py-2 rounded transition-colors mt-auto dark:bg-emerald-600 dark:hover:bg-emerald-700">Xem nhanh</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden relative border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+                <span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Sale</span>
+                <img src="https://cdn.pixabay.com/photo/2020/04/28/12/58/tulips-5104396_960_720.jpg" class="w-100 h-48 object-cover" alt="Hoa lan">
+                <div class="p-4 flex flex-column">
+                    <h5 class="font-bold text-lg text-gray-900 mb-1 dark:text-white">Hoa lan</h5>
+                    <p class="text-red-500 font-bold text-sm mb-4 dark:text-red-400">900.000 đ</p>
+                    <button class="w-full bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium py-2 rounded transition-colors mt-auto dark:bg-emerald-600 dark:hover:bg-emerald-700">Xem nhanh</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+                <img src="https://cdn.pixabay.com/photo/2020/04/28/12/58/tulips-5104396_960_720.jpg" class="w-100 h-48 object-cover" alt="Hoa mẫu đơn">
+                <div class="p-4 flex flex-column">
+                    <h5 class="font-bold text-lg text-gray-900 mb-1 dark:text-white">Hoa mẫu đơn</h5>
+                    <p class="text-red-500 font-bold text-sm mb-4 dark:text-red-400">500.000 đ</p>
+                    <button class="w-full bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium py-2 rounded transition-colors mt-auto dark:bg-emerald-600 dark:hover:bg-emerald-700">Xem nhanh</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+                <img src="https://cdn.pixabay.com/photo/2020/04/28/12/58/tulips-5104396_960_720.jpg" class="w-100 h-48 object-cover" alt="Hoa violet">
+                <div class="p-4 flex flex-column">
+                    <h5 class="font-bold text-lg text-gray-900 mb-1 dark:text-white">Hoa violet</h5>
+                    <p class="text-red-500 font-bold text-sm mb-4 dark:text-red-400">3.000.000 đ</p>
+                    <button class="w-full bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium py-2 rounded transition-colors mt-auto dark:bg-emerald-600 dark:hover:bg-emerald-700">Xem nhanh</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+                <img src="https://cdn.pixabay.com/photo/2020/04/28/12/58/tulips-5104396_960_720.jpg" class="w-100 h-48 object-cover" alt="Hoa hướng dương">
+                <div class="p-4 flex flex-column">
+                    <h5 class="font-bold text-lg text-gray-900 mb-1 dark:text-white">Hoa hướng dương</h5>
+                    <p class="text-red-500 font-bold text-sm mb-4 dark:text-red-400">4.000.000 đ</p>
+                    <button class="w-full bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium py-2 rounded transition-colors mt-auto dark:bg-emerald-600 dark:hover:bg-emerald-700">Xem nhanh</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+                <img src="https://cdn.pixabay.com/photo/2020/04/28/12/58/tulips-5104396_960_720.jpg" class="w-100 h-48 object-cover" alt="Hoa iris">
+                <div class="p-4 flex flex-column">
+                    <h5 class="font-bold text-lg text-gray-900 mb-1 dark:text-white">Hoa iris</h5>
+                    <p class="text-red-500 font-bold text-sm mb-4 dark:text-red-400">10.000.000 đ</p>
+                    <button class="w-full bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium py-2 rounded transition-colors mt-auto dark:bg-emerald-600 dark:hover:bg-emerald-700">Xem nhanh</button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 px-6 border-t border-gray-800 dark:bg-gray-950">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h4 class="text-white font-bold text-lg mb-4">Về Shop-Flower</h4>
+                <p class="text-sm leading-relaxed">Chuỗi cung ứng hoa tươi nhập khẩu uy tín hàng đầu, tạo tác nghệ thuật cho cuộc sống ý nghĩa.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-lg mb-4">Dịch vụ</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition-colors">Hoa thiết kế độc quyền</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Sự kiện & Tiệc cưới</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-lg mb-4">Chính sách</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition-colors">Giao hàng 2H hỏa tốc</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Cam kết độ tươi 3 ngày</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-lg mb-4">Bản tin</h4>
+                <div class="flex">
+                    <input type="email" placeholder="Email của bạn..." class="w-full px-3 py-2 text-sm bg-gray-800 border border-gray-700 rounded-l focus:outline-none focus:border-emerald-500 text-white">
+                    <button class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 rounded-r text-sm font-medium">Gửi</button>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-gray-800 mt-8 pt-6 text-center text-xs">
+            &copy; 2026 Designed by Thuu Loi. Powered by Tailwind CSS.
+        </div>
+    </footer>
+
+</body>
+</html>

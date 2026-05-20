@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS Component Library</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 p-8 space-y-12">
+
+    <div class="max-w-5xl mx-auto space-y-12">
+        <h1 class="text-3xl font-extrabold text-slate-900 border-b pb-4">🎨 Tailwind Component Library</h1>
+
+        <section class="space-y-4">
+            <h2 class="text-xl font-bold text-indigo-600">1. Navigation (Navbar & Sidebar)</h2>
+            <div class="space-y-4">
+                <nav class="bg-slate-900 text-white px-6 py-3 rounded-lg flex justify-between items-center shadow-sm">
+                    <span class="font-bold text-emerald-400 tracking-wider">🌸 Shop-Flower</span>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-emerald-400 font-medium">Trang chủ</a>
+                        <a href="#" class="text-slate-300 hover:text-white transition-colors">Sản phẩm</a>
+                        <a href="#" class="text-slate-300 hover:text-white transition-colors">Liên hệ</a>
+                    </div>
+                </nav>
+                
+                <aside class="w-64 bg-white border border-slate-200 rounded-lg p-4 shadow-sm flex flex-col space-y-1">
+                    <div class="text-xs font-bold text-slate-400 px-3 mb-2 uppercase tracking-wider">Bảng điều khiển</div>
+                    <a href="#" class="bg-indigo-50 text-indigo-600 font-semibold px-3 py-2 rounded-md text-sm">📊 Tổng quan</a>
+                    <a href="#" class="text-slate-600 hover:bg-slate-50 px-3 py-2 rounded-md text-sm transition-colors">📦 Đơn hàng</a>
+                    <a href="#" class="text-slate-600 hover:bg-slate-50 px-3 py-2 rounded-md text-sm transition-colors">⚙️ Hệ thống</a>
+                </aside>
+            </div>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-xl font-bold text-indigo-600">2. Buttons (Trạng thái & Kích thước)</h2>
+            <div class="bg-white p-6 border border-slate-200 rounded-lg shadow-sm space-y-6">
+                <div class="flex flex-wrap gap-4 items-center">
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-4 py-2 rounded text-sm transition-colors shadow-sm">Primary</button>
+                    <button class="bg-slate-600 hover:bg-slate-700 text-white font-medium px-4 py-2 rounded text-sm transition-colors shadow-sm">Secondary</button>
+                    <button class="border border-slate-300 hover:bg-slate-50 text-slate-700 font-medium px-4 py-2 rounded text-sm transition-colors">Outline</button>
+                    <button class="bg-slate-200 text-slate-400 font-medium px-4 py-2 rounded text-sm cursor-not-allowed" disabled>Disabled</button>
+                    
+                    <button class="bg-indigo-600 text-white font-medium px-4 py-2 rounded text-sm inline-flex items-center space-x-2 cursor-wait" disabled>
+                        <svg class="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span>Loading...</span>
+                    </button>
+                </div>
+                
+                <div class="flex flex-wrap gap-4 items-center border-t pt-4">
+                    <button class="bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1 rounded text-xs font-medium transition-colors">Size SM</button>
+                    <button class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded text-sm font-medium transition-colors">Size MD</button>
+                    <button class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded text-base font-bold transition-colors">Size LG</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-xl font-bold text-indigo-600">3. Cards (Giao diện thẻ)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://cdn.pixabay.com/photo/2020/04/28/12/58/tulips-5104396_960_720.jpg" class="w-full h-40 object-cover" alt="Product">
+                    <div class="p-4">
+                        <h4 class="font-bold text-base text-slate-900">Hoa Tulip Hà Lan</h4>
+                        <p class="text-sm text-red-500 font-bold mt-1">6.500.000 đ</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg border border-slate-200 p-6 text-center shadow-sm">
+                    <div class="w-16 h-16 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-full mx-auto mb-3 flex items-center justify-center text-white font-bold text-xl shadow-inner shadow-black/10">TL</div>
+                    <h4 class="font-bold text-base text-slate-900">Thuu Loi</h4>
+                    <p class="text-xs text-slate-400 mb-4">Quản trị viên hệ thống</p>
+                    <button class="text-xs bg-indigo-50 text-indigo-600 font-semibold px-4 py-1.5 rounded-full hover:bg-indigo-100 transition-colors">Chi tiết</button>
+                </div>
+                
+                <div class="bg-slate-900 text-white rounded-lg p-6 text-center shadow-md border border-slate-800">
+                    <div class="text-xs font-semibold opacity-70 uppercase tracking-widest">Thành viên VIP</div>
+                    <div class="text-3xl font-extrabold my-3">499K <span class="text-xs font-normal opacity-60">/ tháng</span></div>
+                    <p class="text-xs text-slate-400 mb-4">Ưu đãi giảm ngay 10% trên tổng giá trị hóa đơn khi đặt mua hoa tươi tại shop.</p>
+                    <button class="w-full bg-emerald-500 text-slate-950 font-bold text-sm py-2 rounded hover:bg-emerald-400 transition-colors">Đăng ký ngay</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-xl font-bold text-indigo-600">4. Forms (Trường thông tin nhập liệu với Focus states)</h2>
+            <div class="bg-white p-6 border border-slate-200 rounded-lg shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Họ và tên khách hàng</label>
+                        <input type="text" placeholder="Nhập họ tên tại đây..." class="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Chọn khoảng giá bộ lọc</label>
+                        <select class="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white transition-all">
+                            <option>Dưới 1.000.000 đ</option>
+                            <option>Từ 1.000.000 đ - 3.000.000 đ</option>
+                            <option>Trên 3.000.000 đ</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Lời nhắn viết trên thiệp chúc mừng</label>
+                        <textarea rows="2" placeholder="Ghi nội dung thiệp chúc..." class="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"></textarea>
+                    </div>
+                    <div>
+                        <span class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Phương thức nhận hàng</span>
+                        <div class="flex flex-wrap gap-4">
+                            <label class="inline-flex items-center space-x-2 text-sm cursor-pointer select-none">
+                                <input type="checkbox" class="w-4 h-4 text-indigo-600 border-slate-300 rounded focus:ring-indigo-500 focus:ring-offset-0" checked>
+                                <span>Giao hàng tận nơi</span>
+                            </label>
+                            <label class="inline-flex items-center space-x-2 text-sm cursor-pointer select-none">
+                                <input type="checkbox" class="w-4 h-4 text-indigo-600 border-slate-300 rounded focus:ring-indigo-500 focus:ring-offset-0">
+                                <span>Nhận tại shop</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-3">
+            <h2 class="text-xl font-bold text-indigo-600">5. Alerts (Thanh trạng thái có nút Close)</h2>
+            
+            <div class="bg-emerald-50 border-l-4 border-emerald-500 text-emerald-800 p-4 rounded-r shadow-sm flex justify-between items-center">
+                <span class="text-sm font-medium">✨ <strong>Thành công:</strong> Hệ thống đã lưu cập nhật cấu hình kho hoa.</span>
+                <button class="text-emerald-400 hover:text-emerald-600 font-bold text-sm transition-colors" onclick="this.parentElement.remove()">✕</button>
+            </div>
+            
+            <div class="bg-rose-50 border-l-4 border-rose-500 text-rose-800 p-4 rounded-r shadow-sm flex justify-between items-center">
+                <span class="text-sm font-medium">🚨 <strong>Lỗi kết nối:</strong> Không thể tải dữ liệu danh mục sản phẩm từ máy chủ.</span>
+                <button class="text-rose-400 hover:text-rose-600 font-bold text-sm transition-colors" onclick="this.parentElement.remove()">✕</button>
+            </div>
+            
+            <div class="bg-amber-50 border-l-4 border-amber-500 text-amber-800 p-4 rounded-r shadow-sm flex justify-between items-center">
+                <span class="text-sm font-medium">⚠️ <strong>Cảnh báo:</strong> Số lượng hoa tươi còn lại trong kho sắp chạm mốc tối thiểu.</span>
+                <button class="text-amber-400 hover:text-amber-600 font-bold text-sm transition-colors" onclick="this.parentElement.remove()">✕</button>
+            </div>
+            
+            <div class="bg-sky-50 border-l-4 border-sky-500 text-sky-800 p-4 rounded-r shadow-sm flex justify-between items-center">
+                <span class="text-sm font-medium">ℹ️ <strong>Thông tin:</strong> Chương trình đồng giá phí vận chuyển nội thành áp dụng đến hết tuần.</span>
+                <button class="text-sky-400 hover:text-sky-600 font-bold text-sm transition-colors" onclick="this.parentElement.remove()">✕</button>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
