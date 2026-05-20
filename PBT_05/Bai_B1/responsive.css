@@ -1,0 +1,193 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+body { 
+    font-family: 'Segoe UI', Roboto, sans-serif; 
+    background: #fff5f6; 
+    color: #4a3aff; 
+    font-size: 14px; 
+}
+
+img { 
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+    border-radius: 12px;
+}
+
+.header {
+    background: #ffb6c1; 
+    color: #4c1130;
+    padding: 15px 20px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #8b008b; 
+}
+
+
+.hamburger-btn { 
+    font-size: 24px; 
+    cursor: pointer; 
+    display: block; 
+    color: #8b008b;
+}
+
+.nav-menu { 
+    display: none; 
+    width: 100%; 
+    position: absolute;
+    top: 100%; left: 0; 
+    background: #ffe4e1; 
+    flex-direction: column;
+    z-index: 999; 
+    border-top: 1px solid #ffc0cb;
+}
+
+.nav-menu a { 
+    color: #8b008b; 
+    padding: 14px 20px; 
+    text-decoration: none; 
+    font-weight: 500;
+}
+
+.nav-menu a:hover {
+    background: #ffb6c1;
+}
+
+.menu-checkbox:checked ~ .nav-menu { 
+    display: flex; 
+}
+
+.main-layout { 
+    display: flex; 
+    flex-direction: column; 
+    padding: 15px; 
+    gap: 20px; 
+}
+
+.sidebar, .ads-bar { display: none; }
+
+.product-grid { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 20px; 
+}
+
+.product-card { 
+    background: white; 
+    border-radius: 16px;
+    padding: 15px; 
+    border: 1px solid #ffe4e1;
+    box-shadow: 0 4px 12px rgba(255, 182, 193, 0.15); 
+}
+
+.product-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.3);
+}
+
+.product-card h4 {
+    font-size: 15px;
+    margin: 12px 0 6px 0;
+    color: #4a4a4a;
+}
+
+.card-price { 
+    color: #ff69b4; 
+    font-weight: bold; 
+    font-size: 16px;
+}
+
+.footer { 
+    background: #ffb6c1; 
+    color: #4c1130; 
+    text-align: center; 
+    padding: 20px; 
+    margin-top: 30px; 
+    font-weight: 500;
+}
+
+
+@media (min-width: 768px) {
+    body { font-size: 15px; }
+
+    .sidebar { 
+        display: block; 
+        background: white; 
+        padding: 20px; 
+        border-radius: 16px; 
+        box-shadow: 0 4px 12px rgba(255, 182, 193, 0.15);
+    }
+    
+    .sidebar h3 { color: #8b008b; margin-bottom: 10px; }
+    
+    .filter-dropdown { 
+        width: 100%; 
+        max-width: 250px;
+        padding: 10px; 
+        border-radius: 8px; 
+        border: 1px solid #ffb6c1;
+        outline: none;
+        color: #8b008b;
+    }
+
+    /* Grid 2 cột */
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+    body { font-size: 16px; }
+    
+    /* Ẩn hamburger, mở lại menu ngang thanh lịch */
+    .hamburger-btn { display: none; }
+    
+    .nav-menu { 
+        display: flex !important; 
+        position: static; 
+        flex-direction: row; 
+        width: auto; 
+        background: transparent; 
+        border-top: none; 
+    }
+    
+    .nav-menu a { 
+        padding: 8px 18px; 
+        border-radius: 20px;
+    }
+    
+    .nav-menu a:hover {
+        background: #fff5f6;
+    }
+
+    .main-layout { 
+        display: grid; 
+        grid-template-columns: 260px 1fr 200px; 
+        max-width: 1200px;
+        margin: 35px auto;
+        gap: 25px;
+    }
+
+    .ads-bar { 
+        display: block; 
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); 
+        color: #721c24;
+        font-weight: bold;
+        padding: 20px; 
+        border-radius: 16px; 
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(252, 182, 159, 0.3);
+    }
+    .product-grid { grid-template-columns: repeat(4, 1fr); }
+}
