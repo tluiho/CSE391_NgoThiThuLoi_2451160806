@@ -124,3 +124,23 @@ Ví dụ:
 }
 ``` 
 
+## Câu C2:
+1. Vì sao Tailwind CSS cuối nhỏ hơn Bootstrap?
+- Bootstrap chứa sẵn toàn bộ component và utility classes dù có dùng hay không.
+- Tailwind chỉ sinh ra CSS cho những class thực sự xuất hiện trong project.
+=> Vì vậy file CSS build cuối thường nhỏ hơn Bootstrap.
+2. Tailwind JIT / PurgeCSS là:
+- Tailwind JIT (Just In Time)
+    + Quét file HTML/JS/TS để tìm class đang dùng.
+    + Tạo CSS ngay khi developer viết class.
+    + Chỉ build đúng class cần thiết.
+- PurgeCSS
+    + Xóa toàn bộ CSS không sử dụng khỏi file cuối.
+    + Giúp giảm kích thước CSS đáng kể.
+3. Không nên dùng TailwindCSS:
+    1. Trường hợp 1: 
+        Website hiển thị nội dung động từ editor như: CKEditor,TinyMCE, Word content.
+    -> Vì HTML sinh ra khó gắn utility classes.
+    2. Trường hợp 2: 
+        Team chưa vững CSS nền tảng -> Dễ lạm dụng utility classes mà không hiểu: Flexbox; Grid; Position; Responsive layout
+    => Khó debug và maintain về sau.
