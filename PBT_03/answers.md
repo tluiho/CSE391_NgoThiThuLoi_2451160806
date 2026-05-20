@@ -146,3 +146,36 @@ tr:hover
 - Nếu đổi thứ tự CSS?
     + Nếu specificity khác nhau: không ảnh hưởng
     + Nếu specificity bằng nhau: rule viết SAU sẽ thắng
+## Câu C1:
+1. Tính chiều rộng thực tế: 
+- Sidebar:
+```css
+width: 300px;
+padding: 20px;
+border: 1px;
+```
+chiều rộng thực tế: 300 + 20 + 20 + 1 + 1 = 342px
+- Content:
+```css
+width: 660px;
+padding: 30px;
+border: 1px;
+```
+Chiều rộng thật: 660 + 30 + 30 + 1 + 1 = 722px
+- Tổng chiều rộng: 342 + 722 = 1064px
+- Container chỉ: 960px
+2. layout bị vỡ:
+Vì CSS mặc định dùng: `box-sizing: content-box`
+Nghĩa là: width KHÔNG bao gồm padding và border. Do đó: Sidebar thật = 342px; Content thật = 722px. Tổng lớn hơn container: 1064px > 960px nên .content bị đẩy xuống dòng mới.
+3. 
+- Cách sửa 1 — dùng border-box:
+Khi dùng:
+```css 
+box-sizing: border-box;
+```
+thì width đã bao gồm content + padding + border nên: 300 + 660 = 960px => layout không bị vỡ
+- Cách sửa 2 — Giữ content-box nhưng giảm width:
+    - Tính toán:
+        + Sidebar: 258 + 40 + 2 = 300px
+        + Content: 598 + 60 + 2 = 660px
+        + Tổng: 300 + 660 = 960px
