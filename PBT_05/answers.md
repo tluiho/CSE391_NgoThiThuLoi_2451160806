@@ -43,3 +43,141 @@
 - Lý do trình duyệt không đọc được: Trình duyệt chỉ hiểu CSS chuẩn, không hiểu cú pháp nâng cao của SCSS.
 - Bước chuyển đổi: Cần dùng công cụ biên dịch (Compiler) như Live Sass Compiler hoặc Node-sass để biên dịch `.scss` sang `.css`.
 
+## Câu B3:
+Lệnh compile: sass --watch scss/style.scss:css/responsive.css
+
+## Câu C1: Shopee
+1. 
+- Mobile (375px):
+![alt text](screenshots/C1_mobile.png)
+
+- Tablet (768px):
+![alt text](screenshots/C1_tablet.png)
+
+- Desktop (1440px): 
+![alt text](screenshots/C1_desktop.png)
+
+2. Phân tích:
+- Navigation: Desktop hiện full menu ngang. Mobile ẩn đi ô nhập tìm kiếm.
+- Lưới content: Desktop 3 cột. Tablet 2 cột . Mobile 1 cột dọc.
+- Bị ẩn trên Mobile: Ô nhập tìm kiếm.
+- Font size: Tiêu đề (H1) tự động co nhỏ (ví dụ từ 32px trên desktop xuống 22px trên mobile).
+
+3. 
+![alt text](screenshots/image.png)
+## Câu C2:
+1. Mobile:
+```
+┌──────────────────────────────────────┐
+│               HEADER                 │
+│       [Logo]       [Icon Call]       │
+├──────────────────────────────────────┤
+│             HERO IMAGE               │
+├──────────────────────────────────────┤
+│          FORM ĐẶT BÀN (Order 1)      │
+│  [Ngày/Giờ] [Số người] [Nút Đặt]     │
+├──────────────────────────────────────┤
+│         GRID MÓN ĂN (Order 2)        │
+│  ┌───────────┐                       │
+│  │  Món 1    │                       │
+│  └───────────┘                       │
+│  │  Món 2    │ (Xếp dọc xuống...     │
+│  └───────────┘  đủ 6 món)            │
+├──────────────────────────────────────┤
+│         GOOGLE MAPS (Order 3)        │
+├──────────────────────────────────────┤
+│               FOOTER                 │
+└──────────────────────────────────────┘
+```
+2. Tablet:
+```
+┌──────────────────────────────────────────────────┐
+│ HEADER: [Logo]                    [SĐT Đặt Bàn]  │
+├──────────────────────────────────────────────────┤
+│                   HERO IMAGE                     │
+├──────────────────────────────────────────────────┤
+│ GRID MÓN ĂN (3 Cột x 2 Hàng)                     │
+│ ┌───────────┐  ┌───────────┐  ┌───────────┐      │
+│ │  Món 1    │  │  Món 2    │  │  Món 3    │      │
+│ └───────────┘  └───────────┘  └───────────┘      │
+│ ┌───────────┐  ┌───────────┐  ┌───────────┐      │
+│ │  Món 4    │  │  Món 5    │  │  Món 6    │      │
+│ └───────────┘  └───────────┘  └───────────┘      │
+├─────────────────────────┬────────────────────────┤
+│ FORM ĐẶT BÀN (50%)      │ GOOGLE MAPS (50%)      │
+│ [Ngày]   [Giờ]          │                        │
+│ [Số người] [Ghi chú]    │                        │
+│ [Nút Đặt Bàn]           │                        │
+├─────────────────────────┴────────────────────────┤
+│                     FOOTER                       │
+└──────────────────────────────────────────────────┘
+```
+3.Desktop:
+```
+┌──────────────────────────────────────────────────────────────────────────────────────┐
+│ HEADER: [Logo]                                                          [SĐT Đặt Bàn]│
+├──────────────────────────────────────────────────────────────────────────────────────┤
+│                                      HERO IMAGE                                      │
+├──────────────────────────────────────────────────────────────────────────┬───────────┤
+│  Khu vực Main Content (Bên trái)                                         │ Sidebar   │
+│                                                                          │ (Bên phải)│
+│  GRID MÓN ĂN (6 Cột hàng ngang)                                          │           │
+│  ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐                   │ ┌───────┐ │
+│  │Món 1 │ │Món 2 │ │Món 3 │ │Món 4 │ │Món 5 │ │Món 6 │                   │ │ FORM  │ │
+│  └──────┘ └──────┘ └──────┘ └──────┘ └──────┘ └──────┘                   │ │ ĐẶT   │ │
+│                                                                          │ │ BÀN   │ │
+│  BẢN ĐỒ GOOGLE MAPS (Rộng rãi phía dưới thực đơn)                        │ │       │ │
+│  ┌────────────────────────────────────────────────────────────────────┐  │ │(Sticky│ │
+│  │                                                                    │  │ │ dính  │ │
+│  │                                                                    │  │ │ cố    │ │
+│  │                                                                    │  │ │ định) │ │
+│  └────────────────────────────────────────────────────────────────────┘  │ └───────┘ │
+├──────────────────────────────────────────────────────────────────────────┴───────────┤
+│                                        FOOTER                                        │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+```
+```css
+/*1. MOBILE */
+.main-layout { 
+  display: flex; 
+  flex-direction: column; 
+}
+
+.booking-form { order: 1; }
+.food-grid { 
+  order: 2;
+  display: grid; 
+  grid-template-columns: 1fr; 
+  gap: 15px; 
+}
+.map { order: 3; }
+
+/*2. TABLET (≥ 768px)*/
+@media (min-width: 768px) {
+  .food-grid { grid-template-columns: repeat(3, 1fr); }
+  
+  .form-and-map-wrapper { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; /* Chia đôi 50/50 */
+    gap: 20px;
+  }
+  
+  /* Reset lại thứ tự xếp hàng về mặc định */
+  .booking-form, .food-grid, .map { order: unset; }
+}
+
+/* 3. DESKTOP (≥ 1024px)*/
+@media (min-width: 1024px) {
+  .food-grid { grid-template-columns: repeat(6, 1fr); }
+  .main-layout { 
+    display: grid; 
+    grid-template-columns: 1fr 350px; 
+    gap: 30px; 
+  }
+  .booking-form { 
+    position: sticky; 
+    top: 20px; 
+    height: fit-content; 
+  }
+}
+```
