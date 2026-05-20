@@ -95,7 +95,6 @@ bieuMauForm.addEventListener('submit', function(e) {
     anPopup();         // Đóng form
 });
 
-// ==================== 5. XỬ LÝ NÚT SỬA VÀ XÓA ====================
 // Hàm chạy khi click nút Sửa
 function bamNutSua(index) {
     document.getElementById('modal-title').innerText = "Cập nhật thông tin sinh viên";
