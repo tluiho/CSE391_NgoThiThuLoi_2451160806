@@ -1,6 +1,4 @@
-/* ==========================================
-   RESET & KHUNG CHUNG (CONTAINER)
-   ========================================== */
+
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
@@ -25,58 +23,43 @@ hr {
     background-color: #ffffff;
 }
 
-/* Kỹ thuật Clearfix bắt buộc: ép container phải bọc hết các con đang float */
+
 .container::after {
     content: "";
     display: table;
     clear: both;
 }
-
-/* ==========================================
-   CÁCH 1: SỬ DỤNG BORDER-BOX (.fix-1)
-   ========================================== */
 .fix-1 .sidebar1,
 .fix-1 .content1 {
-    box-sizing: border-box; /* Ép trình duyệt tính gộp padding và border vào width */
+    box-sizing: border-box; 
     float: left;
     border: 1px solid #ccc;
 }
 
 .fix-1 .sidebar1 {
-    width: 300px;  /* Đúng chuẩn đề bài yêu cầu */
+    width: 300px;  
     padding: 20px; 
     background-color: #ffeaa7;
 }
 
 .fix-1 .content1 {
-    width: 660px;  /* Đúng chuẩn đề bài yêu cầu */
+    width: 660px;  
     padding: 30px; 
     background-color: #74b9ff;
 }
-
-/* ==========================================
-   CÁCH 2: KHÔNG DÙNG BORDER-BOX (.fix-2)
-   ========================================== */
 .fix-2 .sidebar2,
 .fix-2 .content2 {
-    box-sizing: content-box; /* Trả về mặc định ban đầu của trình duyệt */
+    box-sizing: content-box; 
     float: left;
     border: 1px solid #ccc;
 }
 
-/* 
-   Tính toán lại bằng tay:
-   Width thực tế = 300px - 40px (padding trái + phải) - 2px (border trái + phải) = 258px
-*/
 .fix-2 .sidebar2 {
     width: 258px;
     padding: 20px;
     background-color: #fab1a0;
 }
 
-/* 
-   Width thực tế = 660px - 60px (padding trái + phải) - 2px (border trái + phải) = 598px
-*/
 .fix-2 .content2 {
     width: 598px;
     padding: 30px;

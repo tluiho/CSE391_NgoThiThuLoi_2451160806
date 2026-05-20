@@ -179,3 +179,18 @@ thì width đã bao gồm content + padding + border nên: 300 + 660 = 960px => 
         + Sidebar: 258 + 40 + 2 = 300px
         + Content: 598 + 60 + 2 = 660px
         + Tổng: 300 + 660 = 960px
+## Câu C2:
+1. Kết quả dự đoán
+- "Sản phẩm A" `h2`: `font-size = 20px | color = green`
+- "Mô tả sản phẩm" `p`: `color = blue`
+- "Sản phẩm B" `h2`: `font-size = 20px | color = blue`
+- "Mô tả sản phẩm B" `p.highlight`: `color = green`
+2. Giải thích:
+- Sản phẩm A `h2`:
+    - `font-size`: Selector `.card .title` có độ ưu tiên cao hơn `.container`.
+    - `color`: Gặp tranh chấp giữa ID `#featured` và Class `.highlight`, nhưng `.highlight` thắng tuyệt đối nhờ mang từ khóa `!important`.
+- Mô tả sản phẩm `p`: Nhận thuộc tính color: inherit nên ép buộc lấy màu của cha trực tiếp `#featured`. Khối cha này có màu blue (do selector `#featured .title` chỉ đổi màu thẻ h2 chứ không đổi màu toàn khối).
+- Sản phẩm B `h2`:
+    - `font-size`: Ăn theo selector `.card .title`.
+    - `color`: Không bị định nghĩa màu riêng, tự động kế thừa màu gốc blue từ khối cha `.card`.
+- Mô tả sản phẩm B `p.highlight`: Thuộc tính kế thừa bị ghi đè hoàn toàn bởi class trực tiếp `.highlight` chứa `!important`.
