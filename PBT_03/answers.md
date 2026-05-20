@@ -71,3 +71,34 @@
 2. Element sẽ có màu đỏ: Do Rule C (#main-price) sử dụng ID selector nên có trọng số (1, 0, 0) cao nhất, vượt trội hoàn toàn so với các Class hay Element selector khác.
 3. Nếu thêm `<p class="price" id="main-price" style="color: orange;">`, element có màu cam vì Inline Style có độ ưu tiên cao hơn mọi Selector thông thường trong file CSS.
 4. Nếu Rule A thêm !important: Element sẽ có màu đen. Vì từ khóa !important phá vỡ mọi quy tắc trọng số thông thường, đưa thuộc tính đó lên mức ưu tiên tối cao nhất.
+
+# Phần B:
+## Câu B1: Các loại selector đã dùng
+1. Element selector
+```css
+body
+table
+th
+td
+```
+2. Class selector
+```css
+.container
+.profile
+.skills
+.active
+```
+3. ID selector
+```css
+#main-header
+```
+4. Descendant selector
+```css
+nav a
+```
+5. Pseudo-class selector
+```css
+nav a:hover
+tr:nth-child(even)
+tr:hover
+```
