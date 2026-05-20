@@ -102,3 +102,47 @@ nav a:hover
 tr:nth-child(even)
 tr:hover
 ```
+## Câu B2:
+- Phần 1:
+ - Hộp 1 (content-box)
+    + Width CSS: 300px
+    + Padding: 20px x 2 = 40px
+    + Border: 5px x 2 = 10px
+ - Chiều rộng thực tế: 300 + 40 + 10 = 350px
+ - Hộp 2 (border-box)
+    + Width thực tế: 300px
+    + Content thực tế: 300 - 40 - 10 = 250px
+ - Giải thích:
+    + content-box: width chỉ tính content
+    + border-box: width bao gồm content + padding + border
+- Phần 2: Nếu không dùng border-box:
+ - Sidebar: 250 + 30 = 280px
+ - Content: 500 + 40 = 540px
+ - Ads: 250 + 30 = 280px
+ - Tổng: 280 + 540 + 280 = 1100px => layout bị vỡ
+    Nếu dùng border-box: Tổng luôn đúng 1000px
+# Câu B3:
+
+| Rule | Specificity |
+|---|---|
+| p | (0,0,1) |
+| .text | (0,1,0) |
+| .highlight | (0,1,0) |
+| p.text | (0,1,1) |
+| p.highlight | (0,1,1) |
+| body p | (0,0,2) |
+| .text.highlight | (0,2,0) |
+| body .text | (0,1,1) |
+| #demo | (1,0,0) |
+| p#demo.text.highlight | (1,2,1) |
+
+-  Kết quả cuối cùng:
+    + Element có màu: gold
+    + Vì rule:
+    ```css
+    p#demo.text.highlight
+    ```
+    Có specificity cao nhất: (1,2,1)
+- Nếu đổi thứ tự CSS?
+    + Nếu specificity khác nhau: không ảnh hưởng
+    + Nếu specificity bằng nhau: rule viết SAU sẽ thắng
