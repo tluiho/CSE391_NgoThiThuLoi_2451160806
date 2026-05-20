@@ -1,0 +1,46 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #f8fafc; padding: 10px; }
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-areas: 
+        "header header header"
+        "hero hero hero"
+        "sidebar main ads"
+        "footer footer footer";
+    gap: 15px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.header { grid-area: header; background: #1e3a8a; color: white; padding: 20px; text-align: center; }
+.hero   { grid-area: hero; }
+.sidebar { grid-area: sidebar; background: #e2e8f0; padding: 15px; }
+.main-content { grid-area: main; }
+.ads    { grid-area: ads; background: #fef08a; padding: 15px; text-align: center; }
+.footer { grid-area: footer; background: #0f172a; color: #94a3b8; padding: 20px; text-align: center; }
+
+.hero {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.featured-banner {
+    grid-column: span 2; /* Chiếm 2 phần diện tích cột */
+    background: linear-gradient(to right, #ec4899, #8b5cf6);
+    color: white; padding: 40px; border-radius: 6px;
+}
+.mini-banner {
+    background: #cbd5e1; padding: 40px; text-align: center; border-radius: 6px;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+}
+.product-item {
+    background: white; border: 1px solid #e2e8f0; border-radius: 6px;
+    padding: 40px 20px; text-align: center; font-weight: bold;
+}
