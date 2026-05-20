@@ -1,0 +1,75 @@
+@import 'variables';
+@import 'mixins';
+@import 'components';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: $font-primary;
+    background: $bg-light;
+    font-size: 14px;
+}
+
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-md;
+    gap: 20px;
+
+    @include respond-to('desktop') {
+        display: grid;
+        grid-template-columns: 260px 1fr 200px;
+        max-width: 1200px;
+        margin: $spacing-lg auto;
+    }
+}
+
+.sidebar {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    @include card-shadow;
+
+    @include respond-to('tablet') {
+        display: block;
+    }
+
+    .filter-dropdown {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid $primary-color;
+        color: $dark-text;
+    }
+}
+
+.ads-bar {
+    display: none;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    font-weight: bold;
+
+    @include respond-to('desktop') {
+        display: block;
+    }
+}
+
+.footer {
+    background: $primary-color;
+    color: $dark-text;
+    text-align: center;
+    padding: 20px;
+    margin-top: $spacing-lg;
+}
+
+.menu-checkbox:checked ~ .nav-menu {
+    display: flex;
+}

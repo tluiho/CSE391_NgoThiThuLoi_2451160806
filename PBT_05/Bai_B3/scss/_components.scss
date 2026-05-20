@@ -1,0 +1,88 @@
+@import 'variables';
+@import 'mixins';
+
+.header {
+    background: $primary-color;
+    color: $dark-text;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    .logo {
+        font-weight: 700;
+        font-size: 20px;
+        color: darken($dark-text, 10%);
+    }
+
+    .hamburger-btn {
+        font-size: 24px;
+        cursor: pointer;
+        color: $dark-text;
+    }
+
+    .nav-menu {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 100%; left: 0;
+        background: lighten($primary-color, 10%);
+        flex-direction: column;
+
+        a {
+            color: $dark-text;
+            padding: 14px 20px;
+            text-decoration: none;
+            
+            &:hover {
+                background: $primary-color;
+            }
+        }
+    }
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    @include respond-to('tablet') {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to('desktop') {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.product-card {
+    background: white;
+    border-radius: 16px;
+    padding: 15px;
+    @include card-shadow;
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    h4 {
+        font-size: 15px;
+        margin: 12px 0 6px 0;
+        color: #4a4a4a;
+    }
+
+    .card-price {
+        color: $secondary-color;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(255, 182, 193, 0.3);
+    }
+    &.featured {
+        border: 2px solid $secondary-color;
+        background: lighten($bg-light, 2%);
+    }
+}
