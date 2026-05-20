@@ -3,7 +3,7 @@
 | ---------- | ------------------------- | ------------------------------------ | ---------------- | ------------------------------ |
 | `static`   | Có                        | Vị trí mặc định                      | Có               | Layout bình thường             |
 | `relative` | Có                        | So với vị trí gốc của chính nó       | Có               | Dịch chuyển nhẹ element        |
-| `absolute` | Không                     | Cha relative gần nhất | Có               | Badge, popup, overlay          |
+| `absolute` | Không                     | Phần tử cha gần nhất có position khác static | Có               | Badge, popup, overlay          |
 | `fixed`    | Không                     | Viewport/browser window              | Không            | Header cố định, nút scroll top |
 | `sticky`   | Có                        | Parent scroll container              | Vừa có vừa không | Sticky menu/sidebar            |
 
@@ -54,4 +54,54 @@
 │ [ Item 4 (1fr)  ]    [ Item 5 (1fr)  ]    [ Item 6 (1fr) ]│
 │ [ Item 7 (1fr)  ]    (Trống)              (Trống)         │
 └───────────────────────────────────────────────────────────┘
+```
+## Câu C1:
+1. Navigation bar ngang (logo + menu + buttons):
+- Chọn: Flexbox.
+- Lý do: Bản chất thanh menu định hướng theo một chiều ngang trục duy nhất. Flexbox cực kỳ mạnh mẽ trong việc phân bổ khoảng cách tùy biến theo dòng bằng `justify-content: space-between`.
+2. Lưới ảnh Instagram (3 cột đều nhau, số ảnh không biết trước):
+- Chọn: Grid.
+- Lý do: Đây là kiểu bố cục 2 chiều (hàng và cột) cố định nghiêm ngặt. Dùng `grid-template-columns: repeat(3, 1fr)` giúp giữ form 3 cột hoàn chỉnh tự động mà không cần tính toán lề hay ép dòng.
+3. Layout blog (main content + sidebar):
+- Chọn: Grid (Hoặc kết hợp).
+- Lý do: Bố cục layout tổng thể của trang web cần phân chia khu vực có kích thước cố định rõ ràng (ví dụ sidebar luôn rộng `300px`, content ăn theo không gian còn lại `1fr`). Grid quản lý cấu trúc trang lớn tối ưu hơn.
+4. Footer với 4 cột thông tin:
+- Chọn: Flexbox.
+- Lý do: Mặc dù trông giống lưới, nhưng số lượng từ trong các cột thông tin footer có độ dài ngắn hoàn toàn khác nhau. Flexbox xử lý dòng linh hoạt giúp giao diện co giãn tự nhiên ở các thiết bị di động cực tốt bằng `flex-wrap: wrap`.
+5. Card sản phẩm(ảnh trên, text giữa, nút dưới cùng dính đáy):
+- Chọn: Flexbox.
+- Lý do: Bố cục sắp xếp bên trong một hộp theo 1 trục dọc (`flex-direction: column`). Flexbox cho phép điều khiển thành phần nút bấm tự đẩy mình xuống đáy dễ dàng nhờ cơ chế `margin-top: auto`.
+
+## Câu C2:
+1. Lỗi 1: Cards không đều chiều cao — nút "Mua" bị nhảy tự do
+- Nguyên nhân: Do lượng chữ tiêu đề h3 hoặc mô tả dài ngắn khác nhau làm độ cao phần text của mỗi hộp không đồng bộ. Nếu phần tử cha không được định hướng trục dọc làm việc, nút bấm sẽ bị đẩy lơ lửng ngay sau dòng text kết thúc.
+- Code sửa: Biến mỗi thẻ .card thành một flex container hướng dọc, dồn khối text lên và ép nút bấm dính đáy bằng margin tự động.
+```css
+.card {
+    display: flex;
+    flex-direction: column; 
+}
+.card .btn {
+    margin-top: auto; 
+}
+```
+2. Lỗi 2: Muốn items căn giữa cả ngang lẫn dọc trong 100vh nhưng vẫn dính góc trái trên
+- Nguyên nhân: Chỉ khai báo thuộc tính kích hoạt kích thước display: flex cho khối cha `.hero`, nhưng bạn lại quên hoàn toàn việc thiết lập các lệnh điều hướng căn chỉnh vị trí trên trục ngang và trục dọc cho nó.
+- Code sửa: 
+```css
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Căn giữa hoàn hảo theo chiều ngang */
+    align-items: center;     /* Căn giữa hoàn hảo theo chiều dọc */
+}
+```
+3. Lỗi 3: Sidebar bị co rúm méo mó khi nội dung vùng Content quá dài
+- Nguyên nhân: Trong cơ chế mặc định của Flexbox, thuộc tính biến thiên tự co hẹp `flex-shrink` có giá trị mặc định bằng `1`. Khi nội dung ở ô `.content` phình quá to, trình duyệt sẽ tự bóp nghẹt độ rộng của phần tử bên cạnh để nhường chỗ.
+- Code sửa: Khóa cứng độ rộng của Sidebar, cấm không cho trình duyệt tự ý co bóp giảm kích thước.
+```css
+.sidebar {
+    width: 250px;
+    flex-shrink: 0; /* Ép giá trị về 0 - Không tự động co lại */
+}
 ```
