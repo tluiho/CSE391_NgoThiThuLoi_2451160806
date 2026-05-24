@@ -6,18 +6,16 @@
 }
 
 body{
-    background:#fce9f9;
+    background:#ebd6e8;
     padding:20px;
-    font-size:16px;
 }
 
 .container{
-    width: 95%;
-    max-width: 1200px;
-    margin: 30px auto;
-    background: white;
+    background:#e9f1f0;
+    max-width:1100px;
+    margin:auto;
     padding: 30px;
-    border-radius: 12px;
+    overflow: hidden;
 }
 
 /* HEADER */
@@ -108,8 +106,7 @@ header{
 .data-table th,
 .data-table td{
     border:1px solid #ddd;
-    padding:14px;
-    font-size:16px;
+    padding:12px;
     text-align:left;
 }
 
