@@ -49,9 +49,9 @@ function capNhatGiaoDien() {
 
 document.getElementById('btn-open-modal').addEventListener('click', function() {
     document.getElementById('modal-title').innerText = "Thêm sinh viên mới";
-    document.getElementById('form-mode').value = "THEM"; // Ghi nhớ trạng thái Thêm
-    document.getElementById('studentId').disabled = false; // Cho phép nhập mã SV
-    bieuMauForm.reset(); // Xóa sạch các chữ cũ trong form
+    document.getElementById('form-mode').value = "THEM"; 
+    document.getElementById('studentId').disabled = false; 
+    bieuMauForm.reset(); 
     xoaCacThongBaoLoi();
     khungPopup.classList.remove('hidden'); 
 });
@@ -74,7 +74,7 @@ bieuMauForm.addEventListener('submit', function(e) {
         return;
     }
 
-    // Gom thông tin từ các ô nhập liệu vào một đối tượng
+   
     const thongTinSV = {
         maSV: maSVInput,
         hoTen: document.getElementById('fullName').value.trim(),
@@ -91,32 +91,31 @@ bieuMauForm.addEventListener('submit', function(e) {
         danhSachSV[viTriSua] = thongTinSV; // Đè dữ liệu mới lên vị trí cũ
     }
 
-    capNhatGiaoDien(); // Vẽ lại bảng mới và tính lại điểm lớp
-    anPopup();         // Đóng form
+    capNhatGiaoDien();
+    anPopup();         
 });
 
 // Hàm chạy khi click nút Sửa
 function bamNutSua(index) {
     document.getElementById('modal-title').innerText = "Cập nhật thông tin sinh viên";
-    document.getElementById('form-mode').value = "SUA"; // Chuyển trạng thái sang Sửa
-    document.getElementById('student-id-hidden').value = index; // Lưu lại vị trí dòng cần sửa
+    document.getElementById('form-mode').value = "SUA"; 
+    document.getElementById('student-id-hidden').value = index; 
     xoaCacThongBaoLoi();
 
     const svHienTai = danhSachSV[index];
 
-    // Đổ dữ liệu cũ lên lại các ô nhập liệu của form popup
     document.getElementById('studentId').value = svHienTai.maSV;
-    document.getElementById('studentId').disabled = true; // Khóa trường mã sinh viên không cho sửa bừa bãi
+    document.getElementById('studentId').disabled = true; 
     document.getElementById('fullName').value = svHienTai.hoTen;
     document.getElementById('dob').value = svHienTai.ngaySinh;
     document.getElementById('className').value = svHienTai.lopHoc;
     document.getElementById('gpa').value = svHienTai.diemTB;
     document.getElementById('email').value = svHienTai.email;
 
-    khungPopup.classList.remove('hidden'); // Mở popup ra
+    khungPopup.classList.remove('hidden'); 
 }
 
-// Hàm chạy khi click nút Xóa
+
 function bamNutXoa(index){
     const svCanXoa = danhSachSV[index];
     const xacNhan = confirm(`Bạn có chắc chắn muốn xóa sinh viên: ${svCanXoa.hoTen} (Mã: ${svCanXoa.maSV}) không?`);
