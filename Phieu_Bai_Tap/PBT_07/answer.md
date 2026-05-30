@@ -109,3 +109,82 @@ var html = `
 </div>
 `;
 ```
+# Phần C:
+## Câu C1:
+- Lỗi 1: Thiếu dấu `;` 
+```js
+//Vị trí và Sửa thành:
+return "Phần trăm giảm không hợp lệ";
+
+var giamGia = giaBan * phanTramGiam / 100;
+let giaSauGiam = giaBan - giamGia;
+
+return giaSauGiam;
+```
+- Lỗi 2: Sử dụng sai toán tử gán (=) thay vì toán tử so sánh (===)
+    + Vị trí: `if (giaSauGiam = 0)`
+    + Giải thích: Toán tử `=` là toán tử gán. Câu lệnh này đang gán giá trị `0` cho biến `giaSauGiam`. Trong JavaScript, giá trị `0` là một giá trị Falsy, làm cho điều kiện `if` luôn luôn sai (không bao giờ in ra "Sản phẩm miễn phí!"), đồng thời vô tình ghi đè biến `giaSauGiam` thành `0`.
+    + Sửa: Thay bằng toán tử so sánh ===.
+- Lỗi 3: Không xử lý ép kiểu dữ liệu đầu vào
+    + Vị trí: `const gia = tinhGiaGiamGia("100000", 20)`
+    + Giải thích: Tham số truyền vào là một chuỗi `"100000"` chứ không phải số. Mặc dù JavaScript có cơ chế tự động ép kiểu khi thực hiện phép nhân/chia, nhưng đây là một bad practice dễ dẫn đến lỗi nghiêm trọng nếu chuỗi truyền vào chứa chữ (ví dụ: `"100k"` sẽ trả về `NaN`).
+    + Sửa: Bổ sung đoạn mã kiểm tra `typeof giaBan !== "number"` hoặc dùng `Number(giaBan)` để ép kiểu chủ động ngay đầu hàm.
+- Lỗi 4: Lỗi logic khi hàm trả về chuỗi thông báo lỗi thay vì số
+    + Vị trí: `const gia2 = tinhGiaGiamGia(50000, 110)`
+    + Giải thích: Khi `phanTramGiam > 100`, hàm trả về một chuỗi `"Phần trăm giảm không hợp lệ"`. Khi dòng tiếp theo chạy: `"Giá: " + gia2`, kết quả in ra sẽ là `"Giá: Phần trăm giảm không hợp lệ"` trông rất mất thẩm mỹ và không đúng logic xử lý lỗi (thông thường nên ném ra một Error hoặc dùng `console.error`).
+
+- 1 lỗi "ẩn" liên quan đến var trong vòng lặp:
+    + Vị trí:
+    ```js
+    for (var i = 0; i < 5; i++) {
+        setTimeout(function() {
+            console.log("Item " + i)
+        }, 1000)
+    }
+    ```
+    + Giải thích:
+        -  `var` không có phạm vi khối: Khi dùng `var i`, JavaScript chỉ tạo ra duy nhất một biến `i` dùng chung cho toàn bộ các vòng lặp.
+        - Bất đồng bộ (`setTimeout`): Hàm `setTimeout` sẽ chờ 1 giây mới chạy. Trong lúc nó chờ, vòng lặp `for` đã chạy xong từ lâu và đẩy biến `i` chung lên giá trị `5`.
+        - Khi hết 1 giây, cả 5 hàm `setTimeout` đồng loạt chạy và cùng nhìn vào biến `i` lúc này đã bằng `5`, dẫn đến việc in ra 5 lần `Item 5`.
+    + Sửa bằng let: Thay `var i = 0` thành `let i = 0`
+        - `let` có phạm vi khối. Với mỗi vòng lặp, JavaScript sẽ tạo ra một biến `i` hoàn toàn mới và giữ nguyên giá trị của `i` tại vòng lặp đó cho `setTimeout`. Kết quả sẽ in đúng từ `Item 0` đến `Item 4`.
+- Code hoàn chỉnh:
+```js
+function tinhGiaGiamGia(giaBan, phanTramGiam) {
+    if (typeof giaBan !== "number" || typeof phanTramGiam !== "number" || Number.isNaN(giaBan) || Number.isNaN(phanTramGiam)) {
+        return "Lỗi: Đầu vào phải là số hợp lệ!";
+    }
+
+    if (phanTramGiam < 0 || phanTramGiam > 100) {
+        return "Lỗi: Phần trăm giảm không hợp lệ";
+    }
+    
+    let giamGia = (giaBan * phanTramGiam) / 100;
+    let giaSauGiam = giaBan - giamGia;
+
+    if (giaSauGiam === 0) {
+        console.log("Sản phẩm miễn phí!");
+    }
+    
+    return giaSauGiam;
+}
+
+// TEST
+const gia = tinhGiaGiamGia(100000, 20); 
+console.log("Giá sau giảm: " + gia + "đ");
+
+const gia2 = tinhGiaGiamGia(50000, 110);
+console.log(gia2);
+
+for (let i = 0; i < 5; i++) {
+    setTimeout(function() {
+        console.log("Item " + i);
+    }, 1000);
+}
+// Kết quả (sau 1 giây): 
+// Item 0
+// Item 1
+// Item 2
+// Item 3
+// Item 4
+```
