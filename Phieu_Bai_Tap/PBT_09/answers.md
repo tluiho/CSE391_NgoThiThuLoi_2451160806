@@ -47,5 +47,15 @@ const userInput = document.querySelector("#search").value;
 // SỬA:
 document.querySelector("#result").textContent = userInput;
 ```
-
+## Câu A3:
+- Khi để nguyên comment (Có nổi bọt): Sự kiện lan từ trong ra ngoài.
+```
+BUTTON
+INNER
+OUTER
+```
+- Khi bỏ comment `e.stopPropagation()` (Chặn nổi bọt): Sự kiện bị dừng lại ngay lập tức tại điểm click.
+```
+BUTTON
+```
 
