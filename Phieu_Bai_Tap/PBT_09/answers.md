@@ -58,4 +58,13 @@ OUTER
 ```
 BUTTON
 ```
+## Câu C1:
+1. Lỗi `countDisplay = count;`: Sai logic gán phần tử. Sửa thành: `countDisplay.textContent = count;`.
+2. Lỗi `"onclick"`: Chuỗi sự kiện dư chữ on. Sửa thành: `"click"`.
+3. Lỗi `innerHTML = null`: Không chuẩn. Sửa thành chuỗi rỗng: `innerHTML = ""`.
+4. Lỗi `item.remove;`: Thiếu dấu ngoặc gọi hàm. Sửa thành: `item.remove();`.
+5. Lỗi nối chuỗi LocalStorage: Giá trị lấy ra là string. Sửa thành ép kiểu số: `parseInt(..., 10) || 0;`.
+6. Lỗi load giá trị `null`: Trang trống sẽ hiện chữ "null". Sửa bằng cách kiểm tra điều kiện `!== null`.
+7. Lỗi mất Event cũ: Khi load `innerHTML` từ bộ nhớ, các thẻ `li` cũ bị mất hàm xóa. Sửa bằng cách dùng vòng lặp gán lại sự kiện sau khi load.
+## Câu C2:
 
