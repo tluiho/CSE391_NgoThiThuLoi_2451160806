@@ -67,4 +67,23 @@ BUTTON
 6. Lỗi load giá trị `null`: Trang trống sẽ hiện chữ "null". Sửa bằng cách kiểm tra điều kiện `!== null`.
 7. Lỗi mất Event cũ: Khi load `innerHTML` từ bộ nhớ, các thẻ `li` cũ bị mất hàm xóa. Sửa bằng cách dùng vòng lặp gán lại sự kiện sau khi load.
 ## Câu C2:
+1. Tại sao bind event lên 1000 elements riêng lẻ là BAD PRACTICE?
+    - Ngốn RAM: Tạo ra 1000 vùng nhớ chứa 1000 hàm giống hệt nhau.
+    - Rò rỉ bộ nhớ: Nếu xóa phần tử mà quên gỡ sự kiện, RAM sẽ bị kẹt.
+    - Kém linh hoạt: Thêm phần tử mới vào DOM lại phải mất công bind sự kiện lại.
+    - Event Delegation giải quyết: Gắn 1 sự kiện duy nhất lên thẻ Cha. Khi click vào thẻ Con, sự kiện tự động "nổi bọt" lên Cha. Thẻ Cha chỉ cần dùng `e.target` để biết con nào vừa click.
+2. 
+```js
+const fragment = document.createDocumentFragment(); // Giỏ chứa tạm thời
 
+for (let i = 0; i < 1000; i++) {
+    const div = document.createElement("div");
+    div.textContent = `Item ${i}`;
+    fragment.appendChild(div); // Thêm vào giỏ tạm (không tốn tài nguyên render)
+}
+
+document.body.appendChild(fragment); // Đổ cả giỏ vào giao diện thật 1 lần duy nhất
+```
+- Nhanh hơn vì:
+    + Code cũ: Gây 1000 lần Reflow/Repaint (trình duyệt phải tính toán lại bố cục và vẽ lại màn hình 1000 lần liên tiếp gây giật lag).
+    + Code mới: Chỉ gây 1 lần Reflow/Repaint duy nhất khi đổ `fragment` vào `body`, giúp giảm tải tối đa cho CPU.
