@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortcuts & Accessibility</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Phím Tắt Hệ Thống 🌸</h1>
+        <p style="font-size: 1.2rem; color: #4a2c3a; margin-bottom: 25px;">
+            Nhấn <kbd>Ctrl + K</kbd> để mở thanh tìm kiếm lệnh nhanh.<br>
+            Sử dụng phím <kbd>←</kbd> <kbd>→</kbd> để chuyển ảnh | Phím <kbd>1 - 4</kbd> để chọn nhanh ảnh | Phím <kbd>Space</kbd> để bật/tắt Tự động chạy Slide.
+        </p>
+        
+        <div class="gallery-wrapper">
+            <img id="mainImage" src="https://i.pinimg.com/originals/38/37/93/3837936e2e9a9036a30a34edb37bed38.jpg" alt="Hình ảnh hoa tulip số 1 trong thư viện" aria-live="polite">
+            <div class="controls">
+                <button id="prevBtn" aria-label="Quay lại hình ảnh trước">Quay lại</button>
+                <button id="playBtn" aria-label="Tự động phát slideshow hình ảnh">Chạy tự động</button>
+                <button id="nextBtn" aria-label="Chuyển sang hình ảnh kế tiếp">Kế tiếp</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="palette" class="palette-overlay" aria-hidden="true" role="dialog" aria-label="Bảng lệnh điều khiển hệ thống nhanh">
+        <div class="palette-box">
+            <input type="text" id="paletteInput" placeholder="Gõ tìm hành động... (ví dụ: tối, sáng, tiếp, quay)" aria-autocomplete="list">
+            <ul id="paletteResults" role="listbox" aria-label="Danh sách các lệnh tìm thấy"></ul>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
