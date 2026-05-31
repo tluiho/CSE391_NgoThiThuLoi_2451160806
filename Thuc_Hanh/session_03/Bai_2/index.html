@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Công Việc Cá Nhân</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1>🌸 My To-Do List 🌸</h1>
+            <p class="subtitle">Quản lý ngày mới thật năng suất</p>
+        </header>
+
+        <section class="summary-section">
+            <div class="summary-card total">
+                <span class="summary-count" id="total-tasks">0</span>
+                <span class="summary-label">Tổng số</span>
+            </div>
+            <div class="summary-card completed">
+                <span class="summary-count" id="completed-tasks">0</span>
+                <span class="summary-label">Đã xong</span>
+            </div>
+            <div class="summary-card pending">
+                <span class="summary-count" id="pending-tasks">0</span>
+                <span class="summary-label">Chưa làm</span>
+            </div>
+        </section>
+
+        <div class="action-bar">
+            <button id="btn-open-form" class="btn btn-primary">➕ Thêm Công Việc Mới</button>
+        </div>
+
+        <main class="task-section">
+            <div id="task-list" class="task-list"></div>
+        </main>
+    </div>
+
+    <div id="task-modal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 id="modal-title">Thêm Công Việc Mới</h2>
+                <button id="btn-close-form" class="btn-close">&times;</button>
+            </div>
+            <form id="task-form">
+                <input type="hidden" id="task-id">
+
+                <div class="form-group">
+                    <label for="task-title">Tiêu đề công việc <span class="required">*</span></label>
+                    <input type="text" id="task-title" required placeholder="Nhập tiêu đề...">
+                </div>
+
+                <div class="form-group">
+                    <label for="task-desc">Mô tả ngắn</label>
+                    <textarea id="task-desc" rows="3" placeholder="Nhập mô tả ngắn..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="task-deadline">Hạn hoàn thành <span class="required">*</span></label>
+                    <input type="date" id="task-deadline" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="task-priority">Mức ưu tiên</label>
+                    <select id="task-priority">
+                        <option value="Thấp">Thấp</option>
+                        <option value="Trung bình" selected>Trung bình</option>
+                        <option value="Cao">Cao</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="btn-cancel" class="btn btn-secondary">Hủy bỏ</button>
+                    <button type="submit" class="btn btn-submit">Lưu lại</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+    <script src="app.js"></script>
+</body>
+</html>
