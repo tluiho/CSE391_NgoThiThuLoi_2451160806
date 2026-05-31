@@ -15,3 +15,10 @@
 2. Khi nào nó sẽ render lại (Re-render)?
     - Nó chỉ render lại khi State thay đổi (gọi hàm setState), khi Props (dữ liệu từ cha truyền vào) thay đổi, hoặc khi component cha của nó bị re-render.
 ## Bài 1.2:
+1. Chạy BadCounter → Nhấn nút → Thấy gì?
+    - Hiện tượng: Số trên màn hình giữ nguyên là `0`. Nhìn vào F12 Console thấy giá trị `count` vẫn tăng `1, 2, 3....`.
+    - Lý do: Biến thường thay đổi không thể kích hoạt cơ chế vẽ lại giao diện của React.
+2. Chạy `GoodCounter` → Nhấn nút → Thấy gì?
+    - Hiện tượng: Số trên màn hình lập tức cập nhật tăng theo mỗi lần click.
+    - Lý do: Hàm `setCount` thông báo cho React biết trạng thái đã đổi, buộc component phải chạy lại (re-render) để lấy JSX mới.
+3. Mở Console → Thấy log "render" mấy lần? : Mỗi lần bấm nút ở `GoodCounter` hay `FlowDemo`, bạn sẽ thấy log render chạy thêm 1 lần (tổng số lần bằng số click + 1 lần chạy đầu).
