@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tulip Garden - Đăng Ký</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="tulip-header">
+            <img src="https://placehold.co/600x150/ff69b4/fff?text=Tulip+Garden" alt="Dải hoa tulip đẹp">
+            <h2>Đăng Ký Thành Viên</h2>
+        </div>
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="nameInput">Họ và tên</label>
+                <div class="input-wrapper">
+                    <input type="text" id="nameInput" placeholder="Nhập từ 2-50 ký tự">
+                    <span class="status-icon" id="nameIcon"></span>
+                </div>
+                <small class="error-msg" id="nameError"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="emailInput">Email</label>
+                <div class="input-wrapper">
+                    <input type="email" id="emailInput" placeholder="ví dụ: tulip@gmail.com">
+                    <span class="status-icon" id="emailIcon"></span>
+                </div>
+                <small class="error-msg" id="emailError"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="passwordInput">Mật khẩu</label>
+                <div class="input-wrapper">
+                    <input type="password" id="passwordInput" placeholder="Nhập mật khẩu của bạn">
+                    <span class="status-icon" id="passwordIcon"></span>
+                </div>
+                <div class="strength-container">
+                    <div class="progress-bar"><div id="strengthBar"></div></div>
+                    <span id="strengthText"></span>
+                </div>
+                <small class="error-msg" id="passwordError"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmInput">Xác nhận mật khẩu</label>
+                <div class="input-wrapper">
+                    <input type="password" id="confirmInput" placeholder="Nhập lại mật khẩu">
+                    <span class="status-icon" id="confirmIcon"></span>
+                </div>
+                <small class="error-msg" id="confirmError"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="phoneInput">Số điện thoại</label>
+                <div class="input-wrapper">
+                    <input type="text" id="phoneInput" placeholder="0901-234-567" maxlength="12">
+                    <span class="status-icon" id="phoneIcon"></span>
+                </div>
+                <small class="error-msg" id="phoneError"></small>
+            </div>
+
+            <button type="submit" id="submitBtn" disabled>Đăng Ký Ngay 🌸</button>
+        </form>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModalBtn">&times;</span>
+            <h3 style="color: #ff1493; margin-bottom: 20px; font-size: 1.8rem;">🎉 Đăng Ký Thành Công!</h3>
+            <div id="modalData" style="text-align: left; line-height: 1.8;"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
